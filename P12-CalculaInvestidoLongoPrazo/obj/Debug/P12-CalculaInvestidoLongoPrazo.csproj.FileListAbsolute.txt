@@ -1,0 +1,7 @@
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\bin\Debug\P12-CalculaInvestidoLongoPrazo.exe.config
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\bin\Debug\P12-CalculaInvestidoLongoPrazo.exe
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\bin\Debug\P12-CalculaInvestidoLongoPrazo.pdb
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\obj\Debug\P12-CalculaInvestidoLongoPrazo.csprojAssemblyReference.cache
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\obj\Debug\P12-CalculaInvestidoLongoPrazo.csproj.CoreCompileInputs.cache
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\obj\Debug\P12-CalculaInvestidoLongoPrazo.exe
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\P12-CalculaInvestidoLongoPrazo\obj\Debug\P12-CalculaInvestidoLongoPrazo.pdb
