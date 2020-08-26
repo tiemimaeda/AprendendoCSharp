@@ -1,0 +1,7 @@
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\bin\Debug\06-ByteBank.exe.config
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\bin\Debug\06-ByteBank.exe
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\bin\Debug\06-ByteBank.pdb
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\obj\Debug\06-ByteBank.csprojAssemblyReference.cache
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\obj\Debug\06-ByteBank.csproj.CoreCompileInputs.cache
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\obj\Debug\06-ByteBank.exe
+C:\Users\pmaeda\Documents\Exercícios\AprendendoCSharp\2-OrientacaoAObjetos\ByteBank\06-ByteBank\obj\Debug\06-ByteBank.pdb
