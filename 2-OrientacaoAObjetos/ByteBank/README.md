@@ -36,9 +36,9 @@ Se utilizamos a classe com frequência e trabalhamos com a classe de um namespac
 O namespace faz parte do nome completo de uma classe.
 O nome completo de uma classe segue o formato:
 
-> namespace.nome da classe.
+> namespace.nome-da-classe.
 
-### Métodos
+### _Métodos_
 
 O C# é bastante estrito. Se estamos falando de método, precisamos inserir parênteses (()) após o nome. Mesmo sem argumentos, eles são necessários. Sendo assim, adicionaremos parênteses e, na sequência, chaves ({}) para abrir um bloco de código. 
 
@@ -46,12 +46,12 @@ O C# é bastante estrito. Se estamos falando de método, precisamos inserir par�
 
 * Por convenção, sempre _iniciar com letra maiúscula_.
 
-### Encapsulamento
+### _Encapsulamento_
 
 Ao criar métodos para manipular um campo interno da classe, estamos fazendo um **encapsulamento**. 
 Ex: encapsulamos um campo, que fica privado e não fica mais publicamente exposto, e o método público é quem permite acessarmos a informação do campo.
 
-### Propriedades
+### _Propriedades_
 
 Por convenção, sempre utilizamos as palavras em inglês _get_ (obter) e _set_ (atribuir).
 Ex:
@@ -61,5 +61,5 @@ Por trás do código public int Idade { get; set; } o compilador cria um campo p
 
 **Nota:** Dentro do bloco de um get ou set, pode haver um campo com o mesmo nome da propriedade, mas com a primeira letra minúscula, que pode gerar confusão. Para evitar que isso aconteça, há uma convenção sobre mudar o nome do campo interno. Sendo assim, no adicionaremos underline (_) à frente do campo. Assim, fica bem clara a diferença. Quando avistamos o underline, sabemos que é um campo privado e pertence somente a essa classe.
 
-### Construtores
-Construtores são utilizados para inicializar os atributos.
+### _Construtores_
+* Construtores são utilizados para inicializar os atributos.
