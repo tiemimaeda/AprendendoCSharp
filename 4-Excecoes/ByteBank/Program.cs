@@ -12,42 +12,42 @@ namespace ByteBank
         {
             try
             {
-                ContaCorrente conta = new ContaCorrente(514, 456789);
+                CarregarContas();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("CATCH NO METODO MAIN");
+            }
+
+            Console.WriteLine("Execução finalizada. Tecle enter para sair");
+            Console.ReadLine();
+        }
+
+        private static void CarregarContas()
+        {
+            using (LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+        }
+
+            public static void TesteInnerException()
+        {
+            try
+            {
+                ContaCorrente conta1 = new ContaCorrente(514, 456789);
                 ContaCorrente conta2 = new ContaCorrente(543, 432167);
 
-                conta2.Transferir(-10, conta);
-
-                conta.Depositar(50);
-                Console.WriteLine(conta.Saldo);
-                conta.Sacar(-500);
-
+                //conta1.Transferir(10000, conta2);
+                conta1.Sacar(10000);
             }
-            catch (ArgumentException e)
-            {
-                if(e.ParamName == "numero")
-                {
-
-                }
-
-                Console.WriteLine("Argumento com problema: " + e.ParamName);
-                Console.WriteLine("Ocorreu uma exceção do tipo ArgumentException");
-                Console.WriteLine(e.Message);
-            }
-            catch (SaldoInsuficienteException e)
+            catch (OperacaoFincanceiraException e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine("Exceção do tipo SaldoInsuficiente");
+                Console.WriteLine(e.StackTrace);
+
             }
 
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-
-            Console.WriteLine(ContaCorrente.TaxaOperacao);
-
-            Console.ReadLine();
         }
     }
 }
