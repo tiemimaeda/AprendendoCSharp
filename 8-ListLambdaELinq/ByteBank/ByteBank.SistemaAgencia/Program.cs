@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ByteBank.SistemaAgencia.Extensoes;
+using ByteBank.SistemaAgencia.Comparadores;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -14,7 +16,72 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            List<int> idades = new List<int>();
+            var contas = new List<ContaCorrente>()
+            {
+                new ContaCorrente(352, 54710),
+                null,
+                new ContaCorrente(353, 32710),
+                null,
+                new ContaCorrente(330, 94521),
+                new ContaCorrente(211, 14526),
+
+            };
+
+            //contas.Sort(); chamar a implementação dada em IComparable
+
+            //contas.Sort(new ComparadorContaCorrentePorAgencia());
+
+            //IOrderedEnumerable<ContaCorrente> contasOrdenadas = contas.OrderBy(conta => conta.Numero);
+
+            //var listaSemNulos = new List<ContaCorrente>();
+
+            //foreach (var conta in contas)
+            //{
+            //    if(conta != null)
+            //    {
+            //        listaSemNulos.Add(conta);
+            //    }
+            //}
+
+            //IEnumerable<ContaCorrente> contasNaoNulas = 
+            //    contas.Where(conta => conta != null);
+
+            //IOrderedEnumerable<ContaCorrente> contasOrdenadas =
+            //    contasNaoNulas.OrderBy(conta => conta.Numero);
+            //é o mesmo que:
+
+            var contasOrdenadas = contas
+                .Where(conta => conta != null)
+                .OrderBy(conta => conta.Numero);
+
+            foreach (var conta in contasOrdenadas)
+            {
+                Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        static void TestaSort()
+        {
+            var nomes = new List<string>()
+            {
+                "Tiemi",
+                "Maria",
+                "Carlos",
+                "André"
+            };
+
+            nomes.Sort();
+
+            foreach (var nome in nomes)
+            {
+                Console.WriteLine(nome);
+            }
+
+
+            var idades = new List<int>();
 
             idades.Add(5);
             idades.Add(20);
@@ -23,19 +90,18 @@ namespace ByteBank.SistemaAgencia
             idades.Add(9);
             idades.Add(71);
 
-            //ListExtensoes.AdicionarVarios(idades, 1, 90, 87, 65);
-
             idades.AdicionarVarios(45, 67, 23, 11);
-            ListExtensoes.AdicionarVarios(idades, 45, 67, 23, 11);
+            //ListExtensoes.AdicionarVarios(idades, 45, 67, 23, 11);
 
-            //idades.Remove(5);
+            idades.AdicionarVarios(99, -1);
 
-            for(int i = 0; i < idades.Count; i++)
+            idades.Sort();
+
+
+            for (int i = 0; i < idades.Count; i++)
             {
                 Console.WriteLine(idades[i]);
             }
-
-            Console.ReadLine();
         }
 
         static void TestaListaDeObject()
