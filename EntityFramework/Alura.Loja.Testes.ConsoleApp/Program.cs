@@ -11,28 +11,65 @@ namespace Alura.Loja.Testes.ConsoleApp
         static void Main(string[] args)
         {
             //GravarUsandoAdoNet();
+            //GravarUsandoEntity();
+            //RecuperarProdutos();
+            //ExcluirProdutos();
+            //RecuperarProdutos();
+            AtualizarProduto();
+
+            Console.ReadLine();
+        }
+
+        private static void AtualizarProduto()
+        {
+            // incluir um produto
             GravarUsandoEntity();
+            RecuperarProdutos();
+
+
+            // atualizar o produto
+            using (var repo = new ProdutoDAOEntity())
+            {
+                Produto primeiro = repo.Produtos().First();
+                primeiro.Nome = "A Coragem Brene Brown";
+                repo.Atualizar(primeiro);
+            }
+            RecuperarProdutos();
+        }
+
+        private static void ExcluirProdutos()
+        {
+           using (var repo = new ProdutoDAOEntity())
+            {
+                IList<Produto> produtos = repo.Produtos();
+                foreach (var item in produtos)
+                {
+                    repo.Remover(item);
+                }
+            }
+        }
+
+        private static void RecuperarProdutos()
+        {
+            using (var repo = new ProdutoDAOEntity())
+            {
+                IList<Produto> produtos = repo.Produtos();
+                Console.WriteLine("Foram encontrados {0} produtos(s)", produtos.Count);
+                foreach (var item in produtos)
+                {
+                    Console.WriteLine(item.Nome);
+                }
+            }
         }
 
         private static void GravarUsandoEntity()
         {
-            Produto p1 = new Produto();
-            p1.Nome = "Harry Potter e a Ordem da Fênix";
-            p1.Categoria = "Livros";
-            p1.Preco = 19.89;
+            Produto p = new Produto();
+            p.Nome = "A coragem de ser imperfeito";
+            p.Categoria = "Livros";
+            p.Preco = 35.00;                      
 
-            Produto p2 = new Produto();
-            p2.Nome = "Senhor dos Anéis 1";
-            p2.Categoria = "Livros";
-            p2.Preco = 19.89;
-
-            Produto p3 = new Produto();
-            p3.Nome = "O Monge e o Executivo";
-            p3.Categoria = "Livros";
-            p3.Preco = 19.89;
-                       
-
-            using (var contexto = new LojaContext())
+            using (var contexto = new ProdutoDAOEntity())
             {
                 //contexto.Produtos.Add(p1);
                 //contexto.Produtos.Add(p2);
@@ -40,8 +77,7 @@ namespace Alura.Loja.Testes.ConsoleApp
                 //contexto.SaveChanges();
 
                 // método AddRange é mais rápido e performático que Add
-                contexto.Produtos.AddRange(p1, p2, p3);
-                contexto.SaveChanges();
+                contexto.Adicionar(p);
             }
         }
 
@@ -57,5 +93,6 @@ namespace Alura.Loja.Testes.ConsoleApp
         //        repo.Adicionar(p);
         //    }
         //}
+
     }
 }
