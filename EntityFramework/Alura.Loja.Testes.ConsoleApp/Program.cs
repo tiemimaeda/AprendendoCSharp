@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,89 +14,49 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //GravarUsandoAdoNet();
-            //GravarUsandoEntity();
-            //RecuperarProdutos();
-            //ExcluirProdutos();
-            //RecuperarProdutos();
-            AtualizarProduto();
-
-            Console.ReadLine();
-        }
-
-        private static void AtualizarProduto()
-        {
-            // incluir um produto
-            GravarUsandoEntity();
-            RecuperarProdutos();
-
-
-            // atualizar o produto
-            using (var repo = new ProdutoDAOEntity())
+            using (var contexto = new LojaContext())
             {
-                Produto primeiro = repo.Produtos().First();
-                primeiro.Nome = "A Coragem Brene Brown";
-                repo.Atualizar(primeiro);
-            }
-            RecuperarProdutos();
-        }
+                var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
+                var loggerfactory = serviceProvider.GetService<ILoggerFactory>();
+                loggerfactory.AddProvider(SqlLoggerProvider.Create());
 
-        private static void ExcluirProdutos()
-        {
-           using (var repo = new ProdutoDAOEntity())
-            {
-                IList<Produto> produtos = repo.Produtos();
-                foreach (var item in produtos)
+                //faz o select
+                var produtos = contexto.Produtos.ToList();
+
+                //pega as entidades que estão dentro do contexto e exibe
+                ExibeEntries(contexto.ChangeTracker.Entries());
+
+                //adiciona um novo produto no contexto
+                var novoProduto = new Produto()
                 {
-                    repo.Remover(item);
-                }
+                    Nome = "Sabão em pó",
+                    Categoria = "Limpeza",
+                    Preco = 15.00
+                };
+                contexto.Produtos.Add(novoProduto);
+
+                //remover um produto do contexto
+                //var p1 = produtos.First();
+                contexto.Produtos.Remove(novoProduto);
+
+                //exibe as entidades
+                ExibeEntries(contexto.ChangeTracker.Entries());
+
+                contexto.SaveChanges();
+
+                //exibe novamente as entidades após o SaveChanges
+                ExibeEntries(contexto.ChangeTracker.Entries());
             }
         }
 
-        private static void RecuperarProdutos()
+        private static void ExibeEntries(IEnumerable<EntityEntry> entries)
         {
-            using (var repo = new ProdutoDAOEntity())
+            Console.WriteLine("-----------------------");
+
+            foreach (var e in entries)
             {
-                IList<Produto> produtos = repo.Produtos();
-                Console.WriteLine("Foram encontrados {0} produtos(s)", produtos.Count);
-                foreach (var item in produtos)
-                {
-                    Console.WriteLine(item.Nome);
-                }
+                Console.WriteLine(e.Entity.ToString() + " - " + e.State);
             }
         }
-
-        private static void GravarUsandoEntity()
-        {
-            Produto p = new Produto();
-            p.Nome = "A coragem de ser imperfeito";
-            p.Categoria = "Livros";
-            p.Preco = 35.00;                      
-
-            using (var contexto = new ProdutoDAOEntity())
-            {
-                //contexto.Produtos.Add(p1);
-                //contexto.Produtos.Add(p2);
-                //contexto.Produtos.Add(p3);
-                //contexto.SaveChanges();
-
-                // método AddRange é mais rápido e performático que Add
-                contexto.Adicionar(p);
-            }
-        }
-
-        //private static void GravarUsandoAdoNet()
-        //{
-        //    Produto p = new Produto();
-        //    p.Nome = "Harry Potter e a Ordem da Fênix";
-        //    p.Categoria = "Livros";
-        //    p.Preco = 19.89;
-
-        //    using (var repo = new ProdutoDAO())
-        //    {
-        //        repo.Adicionar(p);
-        //    }
-        //}
-
     }
 }
