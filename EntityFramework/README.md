@@ -61,3 +61,13 @@ O objeto não foi modificado desde que foi anexado ao contexto ou desde a últim
 **Script-Migration:** Generates a SQL script from migrations.
 
 **Update-Database:** Updates the database to a specified migration.
+
+### 1:N (um para muitos)
+
+1) Neste relacionamento, cada elemento da entidade A pode ter um relacionamento com vários elementos da entidade B.
+
+2) Cada um dos elementos da entidade B pode estar relacionado a apenas um elemento da entidade A.
+
+3) Na tabela que representa o relacionamento para muitos (N), deverá haver uma coluna referente à chave primária da primeira tabela, para que seja estabelecido o relacionamento entre ambas as tabelas.
+
+ 
