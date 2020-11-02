@@ -46,3 +46,18 @@ O objeto não foi modificado desde que foi anexado ao contexto ou desde a últim
 
 
 ![](./Diagrama_States.png)
+
+
+### Comandos do Entity Framework Core
+
+**Add-Migration:** Adds a new migration.
+
+**Drop-Database:** Drops the database.
+
+**Remove-Migration:** Removes the last migration.
+
+**Scaffold-DbContext:** Scaffolds a DbContext and entity types for a database.
+
+**Script-Migration:** Generates a SQL script from migrations.
+
+**Update-Database:** Updates the database to a specified migration.

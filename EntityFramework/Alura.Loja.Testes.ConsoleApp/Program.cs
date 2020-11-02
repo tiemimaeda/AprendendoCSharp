@@ -14,6 +14,11 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        private static void TestandoChangeTracker()
+        {
             using (var contexto = new LojaContext())
             {
                 var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
@@ -29,15 +34,15 @@ namespace Alura.Loja.Testes.ConsoleApp
                 //adiciona um novo produto no contexto
                 var novoProduto = new Produto()
                 {
-                    Nome = "Sabão em pó",
+                    Nome = "Balde",
                     Categoria = "Limpeza",
-                    Preco = 15.00
+                    PrecoUnitario = 10.00
                 };
                 contexto.Produtos.Add(novoProduto);
 
                 //remover um produto do contexto
                 //var p1 = produtos.First();
-                contexto.Produtos.Remove(novoProduto);
+                //contexto.Produtos.Remove(novoProduto);
 
                 //exibe as entidades
                 ExibeEntries(contexto.ChangeTracker.Entries());
