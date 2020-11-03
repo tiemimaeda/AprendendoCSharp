@@ -14,17 +14,31 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //compra de 6 pães franceses
-            var paoFrances = new Produto();
-            paoFrances.Nome = "Pão Francês";
-            paoFrances.PrecoUnitario = 0.40;
-            paoFrances.Unidade = "Unidade";
-            paoFrances.Categoria = "Padaria";
+            var p1 = new Produto() { Nome = "Suco de laranja", Categoria = "Bebidas", PrecoUnitario = 7.50, Unidade = "Litros"};
+            var p2 = new Produto() { Nome = "Café", Categoria = "Bebidas", PrecoUnitario = 12.45, Unidade = "kg" };
+            var p3 = new Produto() { Nome = "Arroz", Categoria = "Alimentos", PrecoUnitario = 25.00, Unidade = "kg" };
 
-            var compra = new Compra();
-            compra.Quantidade = 6;
-            compra.Produto = paoFrances;
-            compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
+            var promocaoDePascoa = new Promocao();
+            promocaoDePascoa.Descricao = "Páscoa Feliz";
+            promocaoDePascoa.DataInicio = DateTime.Now;
+            promocaoDePascoa.DataTermino = DateTime.Now.AddMonths(3);
+
+            promocaoDePascoa.IncluiProduto(p1);
+            promocaoDePascoa.IncluiProduto(p2);
+            promocaoDePascoa.IncluiProduto(p3);
+            
+
+            ////compra de 6 pães franceses
+            //var paoFrances = new Produto();
+            //paoFrances.Nome = "Pão Francês";
+            //paoFrances.PrecoUnitario = 0.40;
+            //paoFrances.Unidade = "Unidade";
+            //paoFrances.Categoria = "Padaria";
+
+            //var compra = new Compra();
+            //compra.Quantidade = 6;
+            //compra.Produto = paoFrances;
+            //compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
 
             using (var contexto = new LojaContext())
             {
@@ -32,12 +46,10 @@ namespace Alura.Loja.Testes.ConsoleApp
                 var loggerfactory = serviceProvider.GetService<ILoggerFactory>();
                 loggerfactory.AddProvider(SqlLoggerProvider.Create());
 
-                contexto.Compras.Add(compra);
-
-                ExibeEntries(contexto.ChangeTracker.Entries());
-
+                //contexto.Promocoes.Add(promocaoDePascoa);
+                var promocao = contexto.Promocoes.Find(2);
+                contexto.Promocoes.Remove(promocao);
                 contexto.SaveChanges();
-
             }
         }
 

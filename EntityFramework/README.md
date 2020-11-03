@@ -70,4 +70,9 @@ O objeto não foi modificado desde que foi anexado ao contexto ou desde a últim
 
 3) Na tabela que representa o relacionamento para muitos (N), deverá haver uma coluna referente à chave primária da primeira tabela, para que seja estabelecido o relacionamento entre ambas as tabelas.
 
- 
+ ### N:N (muitos para muitos)
+
+ Para relacionar muitos com muitos, é necessário fazer uma tabela intermediária.
+ Quando criamos uma tabela de join com uma chave estrangeira para uma outra tabela, é gerado um trigger OnDeleteCascade, que amarra os filhos. Portanto, se excluído o pai, o filho automaticamente é excluído.
+
+  ### 1:1 (um para um)
