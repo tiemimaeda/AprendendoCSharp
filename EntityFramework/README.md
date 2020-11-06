@@ -9,8 +9,7 @@ Itens necessários para podermos utilizar o Entity Framework Core em nossos proj
 
 ### **CRUD com Entity**
 
-* Remove()
-* Update()
+![](./crud_Entity.png)
 
 SaveChanges() -> ss alterações só são feitas no banco depois que chamamos o método SaveChanges.
 
@@ -75,4 +74,5 @@ O objeto não foi modificado desde que foi anexado ao contexto ou desde a últim
  Para relacionar muitos com muitos, é necessário fazer uma tabela intermediária.
  Quando criamos uma tabela de join com uma chave estrangeira para uma outra tabela, é gerado um trigger OnDeleteCascade, que amarra os filhos. Portanto, se excluído o pai, o filho automaticamente é excluído.
 
-  ### 1:1 (um para um)
+ 
+ ![](./relacoes.png)
