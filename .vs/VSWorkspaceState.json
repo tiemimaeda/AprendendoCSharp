@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\2-OrientacaoAObjetos",
-    "\\2-OrientacaoAObjetos\\ByteBank"
+    "\\2-OrientacaoAObjetos\\ByteBank",
+    "\\EntityFramework",
+    "\\EntityFramework\\Alura.Loja.Testes.ConsoleApp",
+    "\\EntityFramework\\Alura.Loja.Testes.ConsoleApp\\Migrations"
   ],
-  "SelectedNode": "\\2-OrientacaoAObjetos\\ByteBank\\ByteBank.sln",
+  "SelectedNode": "\\EntityFramework\\Alura.Loja.Testes.ConsoleApp\\Migrations\\20201025235837_Inicial.cs",
   "PreviewInSolutionExplorer": false
 }
