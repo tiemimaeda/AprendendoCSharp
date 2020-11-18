@@ -9,7 +9,7 @@ namespace Alura.ListaLeitura.App.Repositorio
 {
     public class LivroRepositorioCSV : ILivroRepositorio
     {
-        private static readonly string nomeArquivoCSV = "C:\\Users\\pmaeda\\Documents\\Exercicios\\Formacao_.NET\\Asp.NetCore\\Alura.ListaLeitura\\Alura.ListaLeitura.App\\Repositorio\\livros.csv";
+        private static readonly string nomeArquivoCSV = "C:\\Users\\pmaeda\\Documents\\Exercicios\\Formacao_.NET\\Asp.NetCore\\Alura.ListaLeitura.App\\Repositorio\\livros.csv";
 
         private ListaDeLeitura _paraLer;
         private ListaDeLeitura _lendo;
